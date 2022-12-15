@@ -1,0 +1,78 @@
+
+[Version]
+Signature="$Chicago$"
+AdvancedINF=2.5
+
+[DefaultInstall]
+CopyFiles=SWFiles, inffile
+AddReg=SW.AddReg
+RegisterOCXs=RegisterOCXSection
+
+[DefaultUninstall]
+cleanup=1
+Delfiles=SWFiles
+delreg=SW.DelReg
+UnRegisterOCXs=UnRegisterOCXSection
+
+[strings]
+productname="Shockwave Flash"
+;	added for the win 98 cd install
+GUID = "{D27CDB6E-AE6D-11cf-96B8-444553540000}"
+DefaultName = "Macromedia Shockwave Flash"
+ComponentID = "Flash"
+VersionNumber = "4,0,25,0"
+LocaleID = "EN"
+
+[RegisterOCXSection]
+%11%\macromed\flash\swflash.ocx
+
+[UnRegisterOCXSection]
+%11%\macromed\flash\swflash.ocx
+
+[SW.AddReg]
+; 			shockwaveflash is used here the sync with the currently used CIF files on www.microsoft.com
+;			if we used shockwave for flash then durring the IE4 uninstall we would not get uninstalled
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ShockwaveFlash,"QuietDisplayName",,"%ProductName%"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ShockwaveFlash,"QuietUninstallString",,"RunDll32 advpack.dll,LaunchINFSection %17%\swflash.inf,DefaultUninstall,5"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ShockwaveFlash,"RequiresIESysFile",,"4.70.0.1155"
+
+;	added for win 98 cd install
+HKLM,"SOFTWARE\Microsoft\Active Setup\Installed Components\%GUID%",,,"%DefaultName%"
+HKLM,"SOFTWARE\Microsoft\Active Setup\Installed Components\%GUID%","ComponentID",,"%ComponentID%"
+HKLM,"SOFTWARE\Microsoft\Active Setup\Installed Components\%GUID%","IsInstalled",1,01,00,00,00
+HKLM,"SOFTWARE\Microsoft\Active Setup\Installed Components\%GUID%","Version",,"%VersionNumber%"
+HKLM,"SOFTWARE\Microsoft\Active Setup\Installed Components\%GUID%","Locale",,"%LocaleID%"
+
+; 9/10/98  smp  added key for win98 uninstall from control panel...
+HKLM, "Software\Microsoft\Windows\CurrentVersion\Setup\OptionalComponents\SwFlash","Installed",,1
+
+[SW.DelReg]
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ShockwaveFlash,"QuietDisplayName",,"%ProductName%"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ShockwaveFlash,"QuietUninstallString",,"RunDll32 advpack.dll,LaunchINFSection %17%\swflash.inf,DefaultUninstall,5"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ShockwaveFlash,"RequiresIESysFile",,"4.70.0.1155"
+
+;	added for the win 98 cd install
+HKLM,"SOFTWARE\Microsoft\Active Setup\Installed Components\%GUID%",,,"%DefaultName%"
+HKLM,"SOFTWARE\Microsoft\Active Setup\Installed Components\%GUID%","ComponentID",,"%ComponentID%"
+HKLM,"SOFTWARE\Microsoft\Active Setup\Installed Components\%GUID%","IsInstalled",1,01,00,00,00
+HKLM,"SOFTWARE\Microsoft\Active Setup\Installed Components\%GUID%","Version",,"%VersionNumber%"
+HKLM,"SOFTWARE\Microsoft\Active Setup\Installed Components\%GUID%","Locale",,"%LocaleID%"
+
+; 9/10/98  smp  added key for win98 uninstall from control panel...
+HKLM, "Software\Microsoft\Windows\CurrentVersion\Setup\OptionalComponents\SwDir","Installed",,0
+
+[SourceDisksNames]
+1="Shockwave Files","Swflash.cab",1
+
+[SourceDisksFiles]
+swflash.ocx=1
+
+[SWFiles]
+swflash.ocx,,,33
+
+[inffile]
+swflash.inf,,,33
+
+[DestinationDirs]
+SWFiles=11, Macromed\Flash
+inffile=17

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="GPRS">
+</Property><Property Name="解决方案文件" Value="D:\!GPRS\VB.NET\GPRS\GPRS.sln">
+</Property><Property Name="用户选项文件" Value="D:\!GPRS\VB.NET\GPRS\GPRS.suo">
+</Property><Property Name="Date" Value="2006年12月26日">
+</Property><Property Name="Time" Value="23:06">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="GPRS.sln" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\GPRS.sln">
+</Event><Event ErrorLevel="0" Project="" Source="GPRS.suo" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\GPRS.suo">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="GPRS.vbproj" Description="项目文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\GPRS.vbproj">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="GPRS.vbproj.user" Description="项目用户文件成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\GPRS.vbproj.user">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="acceptProcess.vb" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\acceptProcess.vb">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="AssemblyInfo.vb" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\AssemblyInfo.vb">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="ClassGprsMod.vb" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\ClassGprsMod.vb">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="ControlShowParameter.vb" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\ControlShowParameter.vb">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="Detail.vb" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\Detail.vb">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="Form1.vb" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\Form1.vb">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="Form2WorkSetting.vb" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\Form2WorkSetting.vb">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="Form3TXSetting.vb" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\Form3TXSetting.vb">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="Form4Print.vb" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\Form4Print.vb">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="Form5About.vb" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\Form5About.vb">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="Form6PrintLS.vb" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\Form6PrintLS.vb">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="Form7SaveDB.vb" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\Form7SaveDB.vb">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="Form8LoadDB.vb" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\Form8LoadDB.vb">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="Form9User.vb" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\Form9User.vb">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="Gridppreport.vb" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\Gridppreport.vb">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="ModuleADO.vb" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\ModuleADO.vb">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="ModuleGPRSdll.vb" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\ModuleGPRSdll.vb">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="ModuleGPRSWork.vb" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\ModuleGPRSWork.vb">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="ModulePerson.vb" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\ModulePerson.vb">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="ModuleRWini.vb" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\ModuleRWini.vb">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="ModuleTools.vb" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\ModuleTools.vb">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="ControlShowParameter.resx" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\ControlShowParameter.resx">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="Form1.resx" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\Form1.resx">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="Form2WorkSetting.resx" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\Form2WorkSetting.resx">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="Form3TXSetting.resx" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\Form3TXSetting.resx">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="Form4Print.resx" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\Form4Print.resx">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="Form5About.resx" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\Form5About.resx">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="Form6PrintLS.resx" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\Form6PrintLS.resx">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="Form7SaveDB.resx" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\Form7SaveDB.resx">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="Form8LoadDB.resx" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\Form8LoadDB.resx">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="Form9User.resx" Description="文件已成功备份为 D:\!GPRS\VB.NET\GPRS\Backup\Form9User.resx">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="GPRS.vbproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="GPRS" Source="GPRS.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="GPRS.sln" Description="成功转换解决方案">
+</Event><Event ErrorLevel="3" Project="" Source="GPRS.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="GPRS" Source="GPRS.vbproj" Description="扫描完成: 项目文件不需要升级。">
+</Event></UpgradeLog>

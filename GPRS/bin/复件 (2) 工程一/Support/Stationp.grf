@@ -1,0 +1,51 @@
+Object Report
+	Version='2.0'
+	Title='Grid++Report'
+	Object Font
+		Name='ËÎÌו'
+		Size=90000,0
+		Weight=400
+		Charset=134
+	End
+	Object Printer
+		Name='A4'
+		Size=9
+		Width=21
+		Height=29.7
+		Oriention=Portriat
+		LeftMargin=1
+		TopMargin=2.5
+		RightMargin=1
+		BottomMargin=2.5
+	End
+	Object DetailGrid
+		LineColor=Black
+		Object Recordset
+		End
+		Object ColumnContent
+			Height=1.4
+		End
+		Object ColumnTitle
+			Visible=F
+			Height=0.582083
+		End
+	End
+	Items Section
+		Item
+			Type=ReportHeader
+			Name='ReportHeader1'
+			Height=22.3838
+			Items Control
+				Item
+					Type=RichTextBox
+					Name='RichTextBox1'
+					Left=0.185208
+					Top=0.185208
+					Width=18.6002
+					Height=21.59
+				End
+			End
+			KeepTogether=T
+		End
+	End
+End

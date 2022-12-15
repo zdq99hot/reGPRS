@@ -1,0 +1,40 @@
+ 目前接收来的顺序：  原来   现在
+ 1。供压             2      3
+ 2。回压             5      4
+ 3。供温             1      1      
+ 4。回温             4      2
+ 5。一流             6      5
+ 6。二流             3      6
+ 
+
+ 
+              Case 1
+                .StationParameters(i, 0) = "一次网供水压力"
+                .StationParameters(i, 2) = "兆帕"
+              Case 2
+                .StationParameters(i, 0) = "一次网供水温度"
+                .StationParameters(i, 2) = "摄氏度"
+              Case 3
+                .StationParameters(i, 0) = "二次网供水压力"
+                .StationParameters(i, 2) = "兆帕"
+              Case 4
+                .StationParameters(i, 0) = "二次网供水温度"
+                .StationParameters(i, 2) = "摄氏度"
+              Case 5
+                .StationParameters(i, 0) = "二次网回水压力"
+                .StationParameters(i, 2) = "兆帕"
+              Case 6
+                .StationParameters(i, 0) = "二次网回水温度"
+                .StationParameters(i, 2) = "摄氏度"
+              Case 7
+                .StationParameters(i, 0) = "一次网回水压力"
+                .StationParameters(i, 2) = "兆帕"
+              Case 8
+                .StationParameters(i, 0) = "一次网回水温度"
+                .StationParameters(i, 2) = "摄氏度"
+              Case 9
+                .StationParameters(i, 0) = "补水流量"
+                .StationParameters(i, 2) = "立方米/秒"
+              Case 10
+                .StationParameters(i, 0) = "供热流量"
+                .StationParameters(i, 2) = "立方米/秒"
