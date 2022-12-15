@@ -671,38 +671,38 @@ Module ModuleTools
     Next i
   End Function
 
-  Public Overloads Function JYHByte(ByVal ByteData() As Byte, ByVal StartIndex As Integer, ByVal Num As Integer) As Byte
-    ' 计算校验和,StartIndex从0开始,也就是数组中的真实索引
-    Dim i, j As Integer
-    Dim tL As Long
-    tL = 0
-    j = ByteData.GetLowerBound(0)
-    For i = 0 To Num - 1
-      If StartIndex + Num - 1 > ByteData.GetUpperBound(0) Then Exit For '如果超出数组长度则校验到最后
-      tL += ByteData(i + j + StartIndex)
-    Next i
-    tL = tL - ((tL \ 256) * 256)
-    JYHByte = tL
-  End Function
+    Public Function JYHByte(ByVal ByteData() As Byte, ByVal StartIndex As Integer, ByVal Num As Integer) As Byte
+        ' 计算校验和,StartIndex从0开始,也就是数组中的真实索引
+        Dim i, j As Integer
+        Dim tL As Long
+        tL = 0
+        j = ByteData.GetLowerBound(0)
+        For i = 0 To Num - 1
+            If StartIndex + Num - 1 > ByteData.GetUpperBound(0) Then Exit For '如果超出数组长度则校验到最后
+            tL += ByteData(i + j + StartIndex)
+        Next i
+        tL = tL - ((tL \ 256) * 256)
+        JYHByte = tL
+    End Function
 
-  Public Overloads Function JYHByte(ByVal ByteData() As Byte, ByVal StartIndex As Integer, ByVal Num As Integer, ByVal CheckSumByte As Byte) As Boolean
-    ' 计算校验和,StartIndex从0开始
-    Dim i, j As Integer
-    Dim tB As Byte
-    Dim tL As Long
-    JYHByte = False
-    tL = 0
-    j = ByteData.GetLowerBound(0)
-    For i = 0 To Num - 1
-      If StartIndex + Num - 1 > ByteData.GetUpperBound(0) Then Exit For '如果超出数组长度则校验到最后
-      tL += ByteData(i + j + StartIndex)
-    Next i
-    tL = tL - ((tL \ 256) * 256)
-    tB = tL
-    If tB = CheckSumByte Then JYHByte = True
-  End Function
+    Public Function JYHByte(ByVal ByteData() As Byte, ByVal StartIndex As Integer, ByVal Num As Integer, ByVal CheckSumByte As Byte) As Boolean
+        ' 计算校验和,StartIndex从0开始
+        Dim i, j As Integer
+        Dim tB As Byte
+        Dim tL As Long
+        JYHByte = False
+        tL = 0
+        j = ByteData.GetLowerBound(0)
+        For i = 0 To Num - 1
+            If StartIndex + Num - 1 > ByteData.GetUpperBound(0) Then Exit For '如果超出数组长度则校验到最后
+            tL += ByteData(i + j + StartIndex)
+        Next i
+        tL = tL - ((tL \ 256) * 256)
+        tB = tL
+        If tB = CheckSumByte Then JYHByte = True
+    End Function
 
-  Public Class GprsUesrs
+    Public Class GprsUesrs
     Public Users() As GPRSPerson
     Private pUserAmount As Short
     Public ActiveNo As Integer  '几号用户是活动用户
@@ -789,227 +789,227 @@ Module ModuleTools
     End With
   End Function
 
-  Public Overloads Function RWUsersIni(ByVal RW As Boolean, ByVal UserNo As Integer) As Boolean
-    '读写单个用户信息
-    If UserNo < 1 Then Exit Function
-    Dim PINI As New GprsRWini
-    Dim SPath, S As String
-    Dim i As Integer
+    Public Function RWUsersIni(ByVal RW As Boolean, ByVal UserNo As Integer) As Boolean
+        '读写单个用户信息
+        If UserNo < 1 Then Exit Function
+        Dim PINI As New GprsRWini
+        Dim SPath, S As String
+        Dim i As Integer
 
-    SPath = GetAppPath() & "\" & AppConfig_FilesName
+        SPath = GetAppPath() & "\" & AppConfig_FilesName
 
-    With PINI
+        With PINI
 
-      Select Case RW
-        Case True ''''''''''''''''''''''''''''''''''''''''''''''''''''''读
-          .FileName = SPath
-          .AppName = "UserAmount"
-          .KeyName = "Amount"
-          S = .ReadINI(RWini_BZString)
-          If S <> "" Then
-            If IsNumeric(S) Then
-              If CSng(S < 1) Then
-                S = "1"
-              End If
-            Else
-              S = "1"
-            End If
-          Else
-            S = "1"
-          End If
-          AUsers.UserAmount = CSng(S)
+            Select Case RW
+                Case True ''''''''''''''''''''''''''''''''''''''''''''''''''''''读
+                    .FileName = SPath
+                    .AppName = "UserAmount"
+                    .KeyName = "Amount"
+                    S = .ReadINI(RWini_BZString)
+                    If S <> "" Then
+                        If IsNumeric(S) Then
+                            If CSng(S < 1) Then
+                                S = "1"
+                            End If
+                        Else
+                            S = "1"
+                        End If
+                    Else
+                        S = "1"
+                    End If
+                    AUsers.UserAmount = CSng(S)
 
-          i = UserNo
+                    i = UserNo
 
-          .FileName = SPath
-          .AppName = "User" & CStr(i)
-          .KeyName = "Name"
-          S = .ReadINI(RWini_BZString)
-          If S = "" Then
-            AUsers.Users(i).Name = "User" & CStr(i)
-          Else
-            AUsers.Users(i).Name = S
-          End If
+                    .FileName = SPath
+                    .AppName = "User" & CStr(i)
+                    .KeyName = "Name"
+                    S = .ReadINI(RWini_BZString)
+                    If S = "" Then
+                        AUsers.Users(i).Name = "User" & CStr(i)
+                    Else
+                        AUsers.Users(i).Name = S
+                    End If
 
-          .FileName = SPath
-          .AppName = "User" & CStr(i)
-          .KeyName = "Pwd"
-          S = .ReadINI(RWini_BZString)
-          S = EDS.De(S)
-          AUsers.Users(i).ChangePassword(AUsers.Users(i).Password, S, S)
+                    .FileName = SPath
+                    .AppName = "User" & CStr(i)
+                    .KeyName = "Pwd"
+                    S = .ReadINI(RWini_BZString)
+                    S = EDS.De(S)
+                    AUsers.Users(i).ChangePassword(AUsers.Users(i).Password, S, S)
 
-          .FileName = SPath
-          .AppName = "User" & CStr(i)
-          .KeyName = "PerLogin"
-          S = .ReadINI(RWini_BZString)
-          If S = "" Then S = "0"
-          AUsers.Users(i).PerLogin = CSng(S)
+                    .FileName = SPath
+                    .AppName = "User" & CStr(i)
+                    .KeyName = "PerLogin"
+                    S = .ReadINI(RWini_BZString)
+                    If S = "" Then S = "0"
+                    AUsers.Users(i).PerLogin = CSng(S)
 
-          .FileName = SPath
-          .AppName = "User" & CStr(i)
-          .KeyName = "SavePws"
-          S = .ReadINI(RWini_BZString)
-          If S = "" Then S = "0"
-          AUsers.Users(i).SavePws = CSng(S)
+                    .FileName = SPath
+                    .AppName = "User" & CStr(i)
+                    .KeyName = "SavePws"
+                    S = .ReadINI(RWini_BZString)
+                    If S = "" Then S = "0"
+                    AUsers.Users(i).SavePws = CSng(S)
 
-        Case False ''''''''''''''''''''''''''''''''''''''''''''''''写
-          .FileName = SPath
-          .AppName = "UserAmount"
-          .KeyName = "Amount"
-          S = CStr(AUsers.UserAmount)
-          .ValueStr = S
-          .WriteINI(RWini_BZString)
+                Case False ''''''''''''''''''''''''''''''''''''''''''''''''写
+                    .FileName = SPath
+                    .AppName = "UserAmount"
+                    .KeyName = "Amount"
+                    S = CStr(AUsers.UserAmount)
+                    .ValueStr = S
+                    .WriteINI(RWini_BZString)
 
-          i = UserNo
+                    i = UserNo
 
-          .FileName = SPath
-          .AppName = "User" & CStr(i)
-          .KeyName = "Name"
-          S = Trim(AUsers.Users(i).Name)
-          'S = StrConv(S, VbStrConv.LinguisticCasing)
-          If S = "" Then
-            S = "User" & CStr(i)
-          End If
-          .ValueStr = S
-          .WriteINI(RWini_BZString)
+                    .FileName = SPath
+                    .AppName = "User" & CStr(i)
+                    .KeyName = "Name"
+                    S = Trim(AUsers.Users(i).Name)
+                    'S = StrConv(S, VbStrConv.LinguisticCasing)
+                    If S = "" Then
+                        S = "User" & CStr(i)
+                    End If
+                    .ValueStr = S
+                    .WriteINI(RWini_BZString)
 
-          .FileName = SPath
-          .AppName = "User" & CStr(i)
-          .KeyName = "Pwd"
-          S = AUsers.Users(i).Password
-          S = EDS.En(S)
-          .ValueStr = S
-          .WriteINI(RWini_BZString)
+                    .FileName = SPath
+                    .AppName = "User" & CStr(i)
+                    .KeyName = "Pwd"
+                    S = AUsers.Users(i).Password
+                    S = EDS.En(S)
+                    .ValueStr = S
+                    .WriteINI(RWini_BZString)
 
-          .FileName = SPath
-          .AppName = "User" & CStr(i)
-          .KeyName = "PerLogin"
-          .ValueStr = CStr(AUsers.Users(i).PerLogin)
-          .WriteINI(RWini_BZString)
+                    .FileName = SPath
+                    .AppName = "User" & CStr(i)
+                    .KeyName = "PerLogin"
+                    .ValueStr = CStr(AUsers.Users(i).PerLogin)
+                    .WriteINI(RWini_BZString)
 
-          .FileName = SPath
-          .AppName = "User" & CStr(i)
-          .KeyName = "SavePws"
-          .ValueStr = CStr(AUsers.Users(i).SavePws)
-          .WriteINI(RWini_BZString)
+                    .FileName = SPath
+                    .AppName = "User" & CStr(i)
+                    .KeyName = "SavePws"
+                    .ValueStr = CStr(AUsers.Users(i).SavePws)
+                    .WriteINI(RWini_BZString)
 
-      End Select
-    End With
-  End Function
-  Public Overloads Function RWUsersIni(ByVal RW As Boolean) As Boolean
-    '读写全部用户信息
-    Dim PINI As New GprsRWini
-    Dim SPath, S As String
-    Dim i As Integer
+            End Select
+        End With
+    End Function
+    Public Function RWUsersIni(ByVal RW As Boolean) As Boolean
+        '读写全部用户信息
+        Dim PINI As New GprsRWini
+        Dim SPath, S As String
+        Dim i As Integer
 
-    SPath = GetAppPath() & "\" & AppConfig_FilesName
+        SPath = GetAppPath() & "\" & AppConfig_FilesName
 
-    With PINI
+        With PINI
 
-      Select Case RW
-        Case True ''''''''''''''''''''''''''''''''''''''''''''''''''''''读
-          .FileName = SPath
-          .AppName = "UserAmount"
-          .KeyName = "Amount"
-          S = .ReadINI(RWini_BZString)
-          If S <> "" Then
-            If IsNumeric(S) Then
-              If CSng(S < 1) Then
-                S = "1"
-              End If
-            Else
-              S = "1"
-            End If
-          Else
-            S = "1"
-          End If
-          AUsers.UserAmount = CSng(S)
+            Select Case RW
+                Case True ''''''''''''''''''''''''''''''''''''''''''''''''''''''读
+                    .FileName = SPath
+                    .AppName = "UserAmount"
+                    .KeyName = "Amount"
+                    S = .ReadINI(RWini_BZString)
+                    If S <> "" Then
+                        If IsNumeric(S) Then
+                            If CSng(S < 1) Then
+                                S = "1"
+                            End If
+                        Else
+                            S = "1"
+                        End If
+                    Else
+                        S = "1"
+                    End If
+                    AUsers.UserAmount = CSng(S)
 
-          For i = 0 To AUsers.UserAmount
+                    For i = 0 To AUsers.UserAmount
 
-            .FileName = SPath
-            .AppName = "User" & CStr(i)
-            .KeyName = "Name"
-            S = .ReadINI(RWini_BZString)
-            If S = "" Then
-              AUsers.Users(i).Name = "User" & CStr(i)
-            Else
-              AUsers.Users(i).Name = S
-            End If
+                        .FileName = SPath
+                        .AppName = "User" & CStr(i)
+                        .KeyName = "Name"
+                        S = .ReadINI(RWini_BZString)
+                        If S = "" Then
+                            AUsers.Users(i).Name = "User" & CStr(i)
+                        Else
+                            AUsers.Users(i).Name = S
+                        End If
 
-            .FileName = SPath
-            .AppName = "User" & CStr(i)
-            .KeyName = "Pwd"
-            S = .ReadINI(RWini_BZString)
-            S = EDS.De(S)
-            AUsers.Users(i).ChangePassword(AUsers.Users(i).Password, S, S)
+                        .FileName = SPath
+                        .AppName = "User" & CStr(i)
+                        .KeyName = "Pwd"
+                        S = .ReadINI(RWini_BZString)
+                        S = EDS.De(S)
+                        AUsers.Users(i).ChangePassword(AUsers.Users(i).Password, S, S)
 
-            .FileName = SPath
-            .AppName = "User" & CStr(i)
-            .KeyName = "PerLogin"
-            S = .ReadINI(RWini_BZString)
-            If S = "" Then S = "0"
-            AUsers.Users(i).PerLogin = CSng(S)
+                        .FileName = SPath
+                        .AppName = "User" & CStr(i)
+                        .KeyName = "PerLogin"
+                        S = .ReadINI(RWini_BZString)
+                        If S = "" Then S = "0"
+                        AUsers.Users(i).PerLogin = CSng(S)
 
-            .FileName = SPath
-            .AppName = "User" & CStr(i)
-            .KeyName = "SavePws"
-            S = .ReadINI(RWini_BZString)
-            If S = "" Then S = "0"
-            AUsers.Users(i).SavePws = CSng(S)
+                        .FileName = SPath
+                        .AppName = "User" & CStr(i)
+                        .KeyName = "SavePws"
+                        S = .ReadINI(RWini_BZString)
+                        If S = "" Then S = "0"
+                        AUsers.Users(i).SavePws = CSng(S)
 
-          Next i
-
-
-        Case False ''''''''''''''''''''''''''''''''''''''''''''''''写
-          .FileName = SPath
-          .AppName = "UserAmount"
-          .KeyName = "Amount"
-          S = CStr(AUsers.UserAmount)
-          .ValueStr = S
-          .WriteINI(RWini_BZString)
+                    Next i
 
 
-          For i = 0 To AUsers.UserAmount
+                Case False ''''''''''''''''''''''''''''''''''''''''''''''''写
+                    .FileName = SPath
+                    .AppName = "UserAmount"
+                    .KeyName = "Amount"
+                    S = CStr(AUsers.UserAmount)
+                    .ValueStr = S
+                    .WriteINI(RWini_BZString)
 
-            .FileName = SPath
-            .AppName = "User" & CStr(i)
-            .KeyName = "Name"
-            S = Trim(AUsers.Users(i).Name)
-            'S = StrConv(S, VbStrConv.LowerCase)
-            If S = "" Then
-              S = "User" & CStr(i)
-            End If
-            .ValueStr = S
-            .WriteINI(RWini_BZString)
 
-            .FileName = SPath
-            .AppName = "User" & CStr(i)
-            .KeyName = "Pwd"
-            S = AUsers.Users(i).Password
-            S = EDS.En(S)
-            .ValueStr = S
-            .WriteINI(RWini_BZString)
+                    For i = 0 To AUsers.UserAmount
 
-            .FileName = SPath
-            .AppName = "User" & CStr(i)
-            .KeyName = "PerLogin"
-            .ValueStr = CStr(AUsers.Users(i).PerLogin)
-            .WriteINI(RWini_BZString)
+                        .FileName = SPath
+                        .AppName = "User" & CStr(i)
+                        .KeyName = "Name"
+                        S = Trim(AUsers.Users(i).Name)
+                        'S = StrConv(S, VbStrConv.LowerCase)
+                        If S = "" Then
+                            S = "User" & CStr(i)
+                        End If
+                        .ValueStr = S
+                        .WriteINI(RWini_BZString)
 
-            .FileName = SPath
-            .AppName = "User" & CStr(i)
-            .KeyName = "SavePws"
-            .ValueStr = CStr(AUsers.Users(i).SavePws)
-            .WriteINI(RWini_BZString)
+                        .FileName = SPath
+                        .AppName = "User" & CStr(i)
+                        .KeyName = "Pwd"
+                        S = AUsers.Users(i).Password
+                        S = EDS.En(S)
+                        .ValueStr = S
+                        .WriteINI(RWini_BZString)
 
-          Next i
-      End Select
-    End With
+                        .FileName = SPath
+                        .AppName = "User" & CStr(i)
+                        .KeyName = "PerLogin"
+                        .ValueStr = CStr(AUsers.Users(i).PerLogin)
+                        .WriteINI(RWini_BZString)
 
-  End Function
+                        .FileName = SPath
+                        .AppName = "User" & CStr(i)
+                        .KeyName = "SavePws"
+                        .ValueStr = CStr(AUsers.Users(i).SavePws)
+                        .WriteINI(RWini_BZString)
 
-  Public Structure GPRSCWSaveDateTime
+                    Next i
+            End Select
+        End With
+
+    End Function
+
+    Public Structure GPRSCWSaveDateTime
     Public SaveDate As Date
     Public SaveTime As Date
   End Structure

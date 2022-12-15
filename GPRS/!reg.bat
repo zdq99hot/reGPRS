@@ -1,6 +1,8 @@
 rem cd !OcxDll
-regsvr32 AniGIF.ocx /s
-regsvr32 my148342PrintOCX.ocx /s
-regsvr32 setprinter.dll /s
-regsvr32 MSCOMM32.OCX /s
-regsvr32 MSFLXGRD.OCX /s
+regsvr32 AniGIF.ocx 
+regsvr32 my148342PrintOCX.ocx 
+regsvr32 setprinter.dll 
+regsvr32 MSCOMM32.OCX 
+regsvr32 MSFLXGRD.OCX 
+
+pause

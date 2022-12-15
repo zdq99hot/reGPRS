@@ -1,7 +1,7 @@
 Imports grproLib
 Public Class Form10FlexTChart
-  Private WithEvents GRDM As New grproLib.GridppReport
-  Private m_pColumnContent As IGRColumnContent
+    Private WithEvents GRDM As New grproLib.GridppReport
+    Private m_pColumnContent As IGRColumnContent
   Private m_pTempsContentCell As IGRColumnContentCell
   Private m_pTempsField As IGRField
 
